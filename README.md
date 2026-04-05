@@ -10,7 +10,7 @@ I focus on understanding why solutions were chosen — not just how to use them.
 behavior, industry tradeoffs, architecture context. That's what good technical decisions
 are built on. That question — why — is the thread through everything I build.
 
-Day job: Senior SDET building enterprise test infrastructure for federal applications.
+Day job: Senior SDET building enterprise test infrastructure at scale.
 Outside that: fractional CTO and consulting.
 
 Available for fractional CTO engagements. IC-only, async-first. Competitive pricing,
@@ -79,11 +79,11 @@ not just internal use.
 - Built a shared test infrastructure layer consumed by 3 independent applications —
   framework reuse was requested before the third app began
 - Designed and shipped an MCP tool adopted organically across teams without mandates —
-  now a standard interface for a multi-project federal health program
+  now a standard interface across a large multi-project enterprise program
 - Implemented accessibility compliance tooling (jest-axe, cypress-axe) across 3 apps —
   defined the standard, not just ran the tests
-- Built a domain-specific synthetic data generation library for a medical application —
-  fixture generation covers military/medical data structures without touching production data
+- Built a domain-specific synthetic data generation library — fixture generation covers
+  complex domain data structures without touching production data
 - Architected a Testcontainers base class layer enabling consistent containerized
   test environments across CI — reusable across teams
 - Identified and presented architectural refactor recommendations to DB and dev leads —
