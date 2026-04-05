@@ -76,10 +76,18 @@ not just internal use.
 
 **Enterprise test infrastructure**
 
-Built automation frameworks from zero consumed by 3+ enterprise applications.
-Framework adopted as the org standard before the third app started.
-Led teams of 10+ automated testers. Cypress, Playwright, Vitest, Testcontainers,
-JMeter, k6, contract testing. Section 508 compliance from the ground up.
+- Built a shared test infrastructure layer consumed by 3 independent applications —
+  framework reuse was requested before the third app began
+- Designed and shipped an MCP tool adopted organically across teams without mandates —
+  now a standard interface for a multi-project federal health program
+- Implemented accessibility compliance tooling (jest-axe, cypress-axe) across 3 apps —
+  defined the standard, not just ran the tests
+- Built a domain-specific synthetic data generation library for a medical application —
+  fixture generation covers military/medical data structures without touching production data
+- Architected a Testcontainers base class layer enabling consistent containerized
+  test environments across CI — reusable across teams
+- Identified and presented architectural refactor recommendations to DB and dev leads —
+  both accepted, both ticketed and committed
 
 **AI and MCP tooling**
 
