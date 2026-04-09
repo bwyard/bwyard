@@ -1,0 +1,8 @@
+packages:
+  - 'apps/*'
+  - 'packages/core/*'
+  - 'packages/infra/*'
+  - 'packages/cms/*'
+  - 'packages/client-portal/*'
+  - 'packages/ops/*'
+  - 'packages/extended/*'
