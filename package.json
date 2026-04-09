@@ -57,6 +57,12 @@
   "pnpm": {
     "overrides": {
       "vite": ">=6.4.2"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "msgpackr-extract",
+      "nx",
+      "unrs-resolver"
+    ]
   }
 }

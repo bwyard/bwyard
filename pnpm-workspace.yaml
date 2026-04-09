@@ -6,3 +6,4 @@ packages:
   - 'packages/client-portal/*'
   - 'packages/ops/*'
   - 'packages/extended/*'
+approveBuilds: true

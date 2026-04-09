@@ -5,6 +5,7 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import helmet from '@fastify/helmet';
+import { env } from './env.js';
 import { authRoutes } from './routes/auth.js';
 import { healthRoutes } from './routes/health.js';
 
@@ -13,7 +14,7 @@ export const buildServer = async () => {
 
   await server.register(helmet);
   await server.register(cors, {
-    origin: (process.env['CORS_ORIGINS'] ?? '').split(',').filter(Boolean),
+    origin: env.CORS_ORIGINS,
     credentials: true,
   });
 

@@ -6,13 +6,16 @@ import type { FastifyInstance } from 'fastify';
 import { getAuth } from '@breeyard/auth';
 import { toNodeHandler } from 'better-auth/node';
 
-export const authRoutes = async (fastify: FastifyInstance) => {
+export const authRoutes = (fastify: FastifyInstance): void => {
   const auth = getAuth();
   const handler = toNodeHandler(auth);
 
-  // better-auth handles all /auth/* routes internally
-  fastify.all('/*', async (request, reply) => {
-    // Adapt Fastify req/reply to Node.js IncomingMessage/ServerResponse
-    await handler(request.raw, reply.raw);
+  // Disable Fastify body parsing for auth routes — better-auth reads the raw stream
+  fastify.addContentTypeParser('application/json', (_request, payload, done) => {
+    done(null, payload);
+  });
+
+  fastify.all('/*', (_request, reply) => {
+    void handler(_request.raw, reply.raw);
   });
 };

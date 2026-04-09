@@ -2,12 +2,14 @@
 // @breeyard/auth — better-auth server instance
 // ============================================================
 
+/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { getDatabase, schema } from '@breeyard/database';
 
 export const createAuth = () =>
   betterAuth({
+    basePath: '/auth',
     database: drizzleAdapter(getDatabase(), {
       provider: 'pg',
       schema: {
@@ -23,9 +25,9 @@ export const createAuth = () =>
     },
     session: {
       expiresIn: 60 * 60 * 24 * 30, // 30 days
-      updateAge: 60 * 60 * 24, // refresh if older than 1 day
+      updateAge: 60 * 60 * 24,
     },
-    trustedOrigins: (process.env['TRUSTED_ORIGINS'] ?? '').split(',').filter(Boolean),
+    trustedOrigins: (process.env.TRUSTED_ORIGINS ?? '').split(',').filter(Boolean),
   });
 
 export type Auth = ReturnType<typeof createAuth>;
@@ -33,8 +35,6 @@ export type Auth = ReturnType<typeof createAuth>;
 let authInstance: Auth | undefined;
 
 export const getAuth = (): Auth => {
-  if (!authInstance) {
-    authInstance = createAuth();
-  }
+  authInstance ??= createAuth();
   return authInstance;
 };

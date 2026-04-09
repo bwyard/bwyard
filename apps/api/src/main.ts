@@ -3,16 +3,14 @@
 // ============================================================
 
 import { buildServer } from './server.js';
+import { env } from './env.js';
 
 const start = async () => {
   const server = await buildServer();
-  const host = process.env['HOST'] ?? '0.0.0.0';
-  const port = parseInt(process.env['PORT'] ?? '3001', 10);
-
-  await server.listen({ host, port });
+  await server.listen({ host: env.HOST, port: env.PORT });
 };
 
-start().catch((err) => {
+start().catch((err: unknown) => {
   console.error(err);
   process.exit(1);
 });
